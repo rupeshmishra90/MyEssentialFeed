@@ -9,14 +9,26 @@ import XCTest
 @testable import MyEssentialFeed
 
 class RemoteFeedLoader{
-    
+    let client: HTTPClient
+    init(client: HTTPClient) {
+        self.client = client
+    }
+    func load()
+    {
+        client.get(from: URL(string: "https://a-url.com")!)
+    }
 }
 class HTTPClient{
-    var requestedURL: URL?
+    func get(from url: URL){}
 }
-
-
-
+class HTTPClientSpy: HTTPClient{
+    var requestedURL: URL?
+    
+    override func get(from url: URL)
+    {
+        requestedURL = url
+    }
+}
 
 final class MyEssentialFeedTests: XCTestCase {
 
@@ -30,17 +42,25 @@ final class MyEssentialFeedTests: XCTestCase {
 
     func test_init_doesNotRequestDataFromURL()
     {
-        let client = HTTPClient()
-        let sut = RemoteFeedLoader()
+        let client = HTTPClientSpy()
+        let sut = RemoteFeedLoader(client: client)
         
         XCTAssertNil(client.requestedURL)
     }
 
+    func test_load_requestDataFromURL()
+    {
+        let client = HTTPClientSpy()
+        let sut = RemoteFeedLoader(client: client)
+        sut.load()
+        XCTAssertNotNil(client.requestedURL)
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+//        self.measure {
+//            // Put the code you want to measure the time of here.
+//        }
     }
 
 }
