@@ -48,11 +48,9 @@ final class MyEssentialFeedTests: XCTestCase {
     {
         let (sut, client) = makeSUT()
         client.error = NSError(domain: "Test", code: 0)
-        var capturedError: RemoteFeedLoader.Error?
-        sut.load{ error in
-            capturedError = error
-        }
-        XCTAssertEqual(capturedError, .connectivity)
+        var capturedErrors = [RemoteFeedLoader.Error]()
+        sut.load{ capturedErrors.append($0)}
+        XCTAssertEqual(capturedErrors, [.connectivity])
     }
     //MARK: - Helper functions
     private func makeSUT(url: URL = URL(string: "https://a-url.com")!) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
