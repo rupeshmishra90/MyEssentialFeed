@@ -52,7 +52,6 @@ final class MyEssentialFeedTests: XCTestCase {
         sut.load{ capturedErrors.append($0)}
         let clientError = NSError(domain: "Test", code: 0)
         client.complete(with: clientError)
-        client.completions[0](clientError)
         XCTAssertEqual(capturedErrors, [.connectivity])
     }
     //MARK: - Helper functions
