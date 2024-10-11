@@ -79,7 +79,7 @@ final class MyEssentialFeedTests: XCTestCase {
 //        let (sut, client) = makeSUT()
 //        
 //        
-    }
+//    }
     //MARK: - Helper functions
     private func makeSUT(url: URL = URL(string: "https://a-url.com")!) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
@@ -90,12 +90,12 @@ final class MyEssentialFeedTests: XCTestCase {
     file: StaticString = #filePath,
     line: UInt = #line, when action: ()-> Void)
     {
-        var capturedErrors = [RemoteFeedLoader.Error]()
-        sut.load{ capturedErrors.append($0)}
+        var capturedResults = [RemoteFeedLoader.Result]()
+        sut.load{ capturedResults.append($0)}
         
         action()
         
-        XCTAssertEqual(capturedErrors, [error], file: file, line: line)
+        XCTAssertEqual(capturedResults, [.failure(error)], file: file, line: line)
     }
     private class HTTPClientSpy: HTTPClient{
         private var messages = [(url: URL, completion: (HTTPClientResult)-> Void)]()
@@ -115,7 +115,5 @@ final class MyEssentialFeedTests: XCTestCase {
             let response = HTTPURLResponse(url: requestedURLs[index], statusCode: code, httpVersion: nil, headerFields: nil)!
             messages[index].completion(.success( data, response))
         }
-        
-        
     }
 }
