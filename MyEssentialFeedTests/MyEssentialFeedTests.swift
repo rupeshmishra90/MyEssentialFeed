@@ -79,7 +79,7 @@ final class MyEssentialFeedTests: XCTestCase {
     {
         let (sut, client) = makeSUT()
         expect(sut, toCompleteWith: .success([])) {
-            let emptyListJSON = Data(bytes: "{\"items\": []}", count: "{\"items\": []}".count)
+            let emptyListJSON = makeItemsJSON([])
             client.complete(withStatusCode: 200, data: emptyListJSON)
         }
         
