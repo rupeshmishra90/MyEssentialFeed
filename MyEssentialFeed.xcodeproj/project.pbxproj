@@ -19,6 +19,7 @@
 		9189788B2CA6C933009214A5 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9189788A2CA6C92A009214A5 /* RemoteFeedLoader.swift */; };
 		91D092DC2C89AFC6004A2DDA /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D092D92C89AFC6004A2DDA /* FeedItem.swift */; };
 		91D092DD2C89AFC6004A2DDA /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D092DA2C89AFC6004A2DDA /* FeedLoader.swift */; };
+		E8FEF4272CEA4690007070B1 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FEF4262CEA4688007070B1 /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		9189788A2CA6C92A009214A5 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 		91D092D92C89AFC6004A2DDA /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		91D092DA2C89AFC6004A2DDA /* FeedLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
+		E8FEF4262CEA4688007070B1 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				9189788A2CA6C92A009214A5 /* RemoteFeedLoader.swift */,
+				E8FEF4262CEA4688007070B1 /* HTTPClient.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				9189788B2CA6C933009214A5 /* RemoteFeedLoader.swift in Sources */,
 				91D092DC2C89AFC6004A2DDA /* FeedItem.swift in Sources */,
 				9116BBD92C89AEEE00046324 /* ViewController.swift in Sources */,
+				E8FEF4272CEA4690007070B1 /* HTTPClient.swift in Sources */,
 				9116BBD52C89AEEE00046324 /* AppDelegate.swift in Sources */,
 				91D092DD2C89AFC6004A2DDA /* FeedLoader.swift in Sources */,
 				9116BBD72C89AEEE00046324 /* SceneDelegate.swift in Sources */,
