@@ -48,7 +48,7 @@ final class MyEssentialFeedTests: XCTestCase {
     {
         let (sut, client) = makeSUT()
         
-        expect(sut, toCompleteWith: .failure(RemoteFeedLoader.Error.connectivity)) {
+        expect(sut, toCompleteWith: failure(.connectivity)) {
             let clientError = NSError(domain: "Test", code: 0)
             client.complete(with: clientError)
         }
@@ -59,7 +59,7 @@ final class MyEssentialFeedTests: XCTestCase {
         let (sut, client) = makeSUT()
         let samples = [199,201,300,400,500]
         samples.enumerated().forEach{ index, code in
-            expect(sut, toCompleteWith: .failure(RemoteFeedLoader.Error.invalidData)) {
+            expect(sut, toCompleteWith: failure(.invalidData)) {
                 let json = makeItemsJSON([])
                 client.complete(withStatusCode: code, data: json, at: index)
             }
@@ -70,7 +70,7 @@ final class MyEssentialFeedTests: XCTestCase {
     {
         let (sut, client) = makeSUT()
         
-        expect(sut, toCompleteWith:  .failure(RemoteFeedLoader.Error.invalidData)) {
+        expect(sut, toCompleteWith:  failure(.invalidData)) {
             let invalidJSON = Data(bytes: "invalid json", count: "invalid json".count)
             client.complete(withStatusCode: 200, data: invalidJSON)
         }
@@ -116,6 +116,10 @@ final class MyEssentialFeedTests: XCTestCase {
         XCTAssert(capturedResults.isEmpty)
     }
     //MARK: - Helper functions
+    private func failure(_ error: RemoteFeedLoader.Error)-> RemoteFeedLoader.Result
+    {
+        return .failure(error)
+    }
     private func makeSUT(url: URL = URL(string: "https://a-url.com")!,
                          file: StaticString = #filePath,
                          line: UInt = #line) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
