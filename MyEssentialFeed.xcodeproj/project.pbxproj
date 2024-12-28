@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,6 @@
 		9116BBDC2C89AEEE00046324 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 9116BBDB2C89AEEE00046324 /* Base */; };
 		9116BBDE2C89AEF000046324 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9116BBDD2C89AEF000046324 /* Assets.xcassets */; };
 		9116BBE12C89AEF000046324 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 9116BBE02C89AEF000046324 /* Base */; };
-		9116BBEC2C89AEF000046324 /* MyEssentialFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116BBEB2C89AEF000046324 /* MyEssentialFeedTests.swift */; };
 		9116BBF62C89AEF000046324 /* MyEssentialFeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116BBF52C89AEF000046324 /* MyEssentialFeedUITests.swift */; };
 		9116BBF82C89AEF000046324 /* MyEssentialFeedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116BBF72C89AEF000046324 /* MyEssentialFeedUITestsLaunchTests.swift */; };
 		9189788B2CA6C933009214A5 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9189788A2CA6C92A009214A5 /* RemoteFeedLoader.swift */; };
@@ -50,7 +49,6 @@
 		9116BBE02C89AEF000046324 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9116BBE22C89AEF000046324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9116BBE72C89AEF000046324 /* MyEssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyEssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9116BBEB2C89AEF000046324 /* MyEssentialFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEssentialFeedTests.swift; sourceTree = "<group>"; };
 		9116BBF12C89AEF000046324 /* MyEssentialFeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyEssentialFeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9116BBF52C89AEF000046324 /* MyEssentialFeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEssentialFeedUITests.swift; sourceTree = "<group>"; };
 		9116BBF72C89AEF000046324 /* MyEssentialFeedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEssentialFeedUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -60,6 +58,10 @@
 		E8FEF4262CEA4688007070B1 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		E8FEF4282CEA480E007070B1 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E89E764B2D2062EC005948A6 /* Feed API */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Feed API"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9116BBCE2C89AEEE00046324 /* Frameworks */ = {
@@ -125,7 +127,7 @@
 		9116BBEA2C89AEF000046324 /* MyEssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
-				9116BBEB2C89AEF000046324 /* MyEssentialFeedTests.swift */,
+				E89E764B2D2062EC005948A6 /* Feed API */,
 			);
 			path = MyEssentialFeedTests;
 			sourceTree = "<group>";
@@ -190,6 +192,9 @@
 			);
 			dependencies = (
 				9116BBE92C89AEF000046324 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E89E764B2D2062EC005948A6 /* Feed API */,
 			);
 			name = MyEssentialFeedTests;
 			productName = MyEssentialFeedTests;
@@ -304,7 +309,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9116BBEC2C89AEF000046324 /* MyEssentialFeedTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
