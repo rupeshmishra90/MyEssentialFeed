@@ -11,7 +11,7 @@ public class URLSessionHTTPClient: HTTPClient{
     public init(session: URLSession = .shared){
         self.session = session
     }
-    struct UnexpectedValuesRepresntation: Error{
+    private struct UnexpectedValuesRepresntation: Error{
         
     }
     public func get(from url: URL, compoletion completion: @escaping (HTTPClientResult)->Void){

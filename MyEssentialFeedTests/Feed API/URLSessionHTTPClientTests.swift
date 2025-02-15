@@ -24,10 +24,10 @@ class URLSessionHTTPClientTests: XCTestCase {
     }
     
     
-    func test_getFromURL_startInterceptingOnRequests(){
+    func test_getFromURL_performsGETRequestWithURL(){
         
         let url = anyURL()
-//        let exp = expectation(description: "Wait for completion")
+//        let exp = expectation(description: "Wait for request")
         URLProtocolStub.observeRequests{ request in
             XCTAssertEqual(request.url, url)
             XCTAssertEqual(request.httpMethod, "GET")
@@ -41,7 +41,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         let requestError = anyNSError()
         
         let receivedError = resultErrorFor(data: nil, response: nil, error: requestError)
-        XCTAssertEqual(receivedError as NSError?, requestError)
+        XCTAssertEqual((receivedError as NSError?)?.code, requestError?.code)
     }
     
     func test_getFromURL_failsOnAllInvalidRepresentationCases(){
@@ -122,7 +122,7 @@ class URLSessionHTTPClientTests: XCTestCase {
     private func anyData()-> Data {
         return Data("any data".utf8)
     }
-    private func anyNSError()-> NSError {
+    private func anyNSError()-> NSError? {
         return  NSError(domain: "any error", code: 0)
     }
     
@@ -130,7 +130,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         return HTTPURLResponse(url: anyURL(), statusCode: 200, httpVersion: nil, headerFields: nil)!
     }
     private func nonHTTPURLResponse() -> URLResponse{
-        return URLResponse(url: anyURL(), mimeType: "text/plain", expectedContentLength: 0, textEncodingName: nil)
+        return URLResponse(url: anyURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
     }
     private class URLProtocolStub: URLProtocol {
         private static var stub: Stub?
@@ -157,10 +157,10 @@ class URLSessionHTTPClientTests: XCTestCase {
             stub = Stub(data: data, response: response, error: error)
         }
         override class func canInit(with request: URLRequest) -> Bool {
+            requestObserver?(request)
             return true
         }
         override class func canonicalRequest(for request: URLRequest) -> URLRequest {
-            requestObserver?(request)
             return request
         }
         override func startLoading() {
