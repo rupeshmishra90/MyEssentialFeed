@@ -72,10 +72,10 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		E8AD59DD2D60B0450065030D /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		E8BA1E462DA15AF100E647AB /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				"Helper/XCTTestCase+MemoryLeakTracking.swift",
+				"XCTTestCase+MemoryLeakTracking.swift",
 			);
 			target = E897E7922D58C0AA009435A1 /* MyEssentialFeedAPIEndToEndTests */;
 		};
@@ -83,7 +83,8 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E897E7942D58C0AA009435A1 /* MyEssentialFeedAPIEndToEndTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = MyEssentialFeedAPIEndToEndTests; sourceTree = "<group>"; };
-		E89E764B2D2062EC005948A6 /* Feed API */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (E8AD59DD2D60B0450065030D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Feed API"; sourceTree = "<group>"; };
+		E89E764B2D2062EC005948A6 /* Feed API */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Feed API"; sourceTree = "<group>"; };
+		E8BA1E432DA15AF100E647AB /* Helper */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (E8BA1E462DA15AF100E647AB /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Helper; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +160,7 @@
 		9116BBEA2C89AEF000046324 /* MyEssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
+				E8BA1E432DA15AF100E647AB /* Helper */,
 				E85172CD2D995DD0003C6520 /* Feed Cache */,
 				E89E764B2D2062EC005948A6 /* Feed API */,
 			);
@@ -237,6 +239,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				E89E764B2D2062EC005948A6 /* Feed API */,
+				E8BA1E432DA15AF100E647AB /* Helper */,
 			);
 			name = MyEssentialFeedTests;
 			productName = MyEssentialFeedTests;
