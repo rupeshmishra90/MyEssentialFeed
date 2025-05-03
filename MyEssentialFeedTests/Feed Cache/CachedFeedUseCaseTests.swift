@@ -47,6 +47,7 @@ class FeedStore{
     {
         insertCallCount += 1
         insertions.append((items, timestamp))
+        
     }
 }
 
