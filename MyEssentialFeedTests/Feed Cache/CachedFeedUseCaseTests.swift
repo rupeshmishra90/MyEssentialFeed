@@ -113,7 +113,6 @@ class CachedFeedUseCaseTests: XCTestCase{
         expect(sut, toCompleteWithError: deletionError) {
             store.completeDeletion(with: deletionError)
         }
-        
     }
     
     func test_save_failsOnInsertionError(){
